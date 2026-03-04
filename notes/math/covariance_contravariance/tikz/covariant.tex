@@ -1,0 +1,43 @@
+\begin{tikzpicture}[>=Stealth, line cap=round, line join=round, font=\small]
+
+  % ===== パラメータ =====
+  \coordinate (O) at (0,0);
+  \coordinate (e1) at (1.0,0.0);
+  \coordinate (e2) at (0.48,1.12);
+  \def\Vone{2.75}
+  \def\Vtwo{1.8}
+
+  % ===== 軸 =====
+  \draw[->, thick]
+  (O) -- ($(O)+4.9*(e1)$) node[below right] {$1$};
+
+  \draw[->, thick]
+  (O) -- ($(O)+3.2*(e2)$) node[above] {$2$};
+
+  % ===== 点 =====
+  \coordinate (V) at ($(O)+\Vone*(e1)+\Vtwo*(e2)$);
+  \coordinate (e1ref) at ($(O)+(e1)$);
+  \coordinate (e2ref) at ($(O)+(e2)$);
+  \coordinate (VoneAxis) at ($(O)!(V)!(e1ref)$);
+  \coordinate (VtwoAxis) at ($(O)!(V)!(e2ref)$);
+
+  % ===== ベクトル V =====
+  \draw[->, very thick]
+  (O) -- (V)
+  node[pos=0.62, above left=2pt] {$\mathbf V$};
+
+  % ===== 共変成分への射影 =====
+  \draw[densely dashed] (V) -- (VoneAxis);
+  \draw[densely dashed] (V) -- (VtwoAxis);
+  % TODO: 垂直記号が上手くいかない
+  % \draw ($(VoneAxis)!0.16!(V)$) -- ++(0,0.16) -- ++(0.16,0);
+  % \draw ($(VtwoAxis)!0.16!(V)$) -- ($($(VtwoAxis)!0.16!(V)$)+(0.14,0.06)$) -- ($($(VtwoAxis)!0.16!(V)$)+(0.08,0.20)$);
+
+  % ===== 軸上の成分点 =====
+  \fill (VoneAxis) circle (2pt);
+  \node[below=8pt] at (VoneAxis) {$V_{1}\coloneq\mathbf{e_{1}}\cdot\mathbf{V}$};
+
+  \fill (VtwoAxis) circle (2pt);
+  \node[left=8pt] at (VtwoAxis) {$V_{2}\coloneq\mathbf{e_{2}}\cdot\mathbf{V}$};
+
+\end{tikzpicture}

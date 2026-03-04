@@ -1,0 +1,56 @@
+\begin{tikzpicture}[>=Stealth, line cap=round, line join=round, font=\small]
+
+  % ===== パラメータ =====
+  \coordinate (e1) at (1.0,0.0);
+  \coordinate (e2) at (0.45,1.05);
+  \def\Vone{2.8}
+  \def\Vtwo{2.0}
+
+  % ===== 見た目パラメータ =====
+  \def\componecol{blue}   % V^1 e_1
+  \def\comptwocol{red}    % V^2 e_2
+
+  % ===== 軸 =====
+  \draw[->, thick]
+  (0,0) -- ($(0,0)+4.8*(e1)$) node[below right] {$1$};
+
+  \draw[->, thick]
+  (0,0) -- ($(0,0)+3.4*(e2)$) node[above] {$2$};
+
+  % ===== 成分点 =====
+  \coordinate (V1) at ($\Vone*(e1)$);
+  \coordinate (V2axis) at ($\Vtwo*(e2)$);
+  \coordinate (V) at ($\Vone*(e1) + \Vtwo*(e2)$);
+
+  % ---- 1軸上の V^1 ----
+  \fill (V1) circle (2pt);
+  \node[below=6pt] at (V1) {$V^{1}$};
+
+  % ---- 2軸上の V^2 ----
+  \fill (V2axis) circle (2pt);
+  \node[left=6pt] at (V2axis) {$V^{2}$};
+
+  % ---- V^1 e_1（青）----
+  \draw[->, thick, \componecol]
+  (0,0) -- (V1)
+  node[pos=0.55, below=2pt] {$V^{1}\mathbf e_{1}$};
+
+  % ---- V^2 e_2（赤）----
+  \draw[->, thick, \comptwocol]
+  (V1) -- (V)
+  node[pos=0.6, right=10pt, below=2pt] {$V^{2}\mathbf e_{2}$};
+
+  % ---- V（黒・太い）----
+  \draw[->, very thick]
+  (0,0) -- (V)
+  node[pos=0.55, above left=2pt] {$\mathbf V$};
+
+  % ---- 補助線 ----
+  \draw[densely dashed] (0,0) -- (V2axis);
+  \draw[densely dashed] (V2axis) -- (V);
+
+  % ---- 式 ----
+  \node at (4.5,2.5)
+  {$\mathbf V = V^{1}\mathbf e_{1} + V^{2}\mathbf e_{2}$};
+
+\end{tikzpicture}

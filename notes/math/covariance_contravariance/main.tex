@@ -1,0 +1,163 @@
+\documentclass{article}
+
+\usepackage[top=10mm]{geometry}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta}
+
+% --- 日本語対応（LuaLaTeX） ---
+\usepackage{luatexja}
+\usepackage{luatexja-fontspec}
+\setmainjfont{HaranoAjiMincho}
+\setsansjfont{HaranoAjiGothic}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE 反変ベクトルと共変ベクトルの違い}
+\end{center}
+% \vspace{2.0em}
+
+\subsection*{$\bullet$ ベクトルの反変成分、共変成分}
+
+実はベクトルの成分の取り方は二つあって、それぞれを反変成分、共変成分と呼ぶ。\\
+ベクトルを基底で展開したときの
+
+\[
+  \mathbf{V} = V^i \mathbf{e}_i
+\]
+
+\noindent
+この \(V^i\) が \textbf{反変成分}。\\
+一方、基底との内積をとって
+
+\[
+  V_i \coloneqq \mathbf{e}_i \cdot \mathbf{V}
+\]
+
+\noindent
+としたものが \textbf{共変成分}。
+
+\subsection*{$\bullet$ 図形的意味}
+
+このことを図で表すと以下のようになる。
+
+\medskip
+\noindent
+\begin{minipage}[t]{0.42\linewidth}
+  \raggedright
+  \underline{反変成分}\par\smallskip
+  \centering
+  \input{tikz/contravariant}
+\end{minipage}
+\hspace{0.10\linewidth}
+\begin{minipage}[t]{0.42\linewidth}
+  \raggedright
+  \underline{共変成分}\par\smallskip
+  \centering
+  \input{tikz/covariant}
+\end{minipage}
+
+\subsection*{$\bullet$ 計量を使った表現}
+
+共変成分は
+
+\[
+  V_i = \mathbf{e}_i \cdot \mathbf{V}
+  = \mathbf{e}_i \cdot (V^j \mathbf{e}_j)
+  = (\mathbf{e}_i \cdot \mathbf{e}_j)V^j
+\]
+
+\noindent
+となるので、
+
+\[
+  g_{ij} \coloneqq \mathbf{e}_i \cdot \mathbf{e}_j
+\]
+
+\noindent
+とすると
+
+\[
+  V_i = g_{ij}V^j
+\]
+
+\noindent
+と表せる。（※ \(g_{ij}\) を計量テンソルと呼ぶ）
+
+\subsection*{$\bullet$ デカルト座標では反変成分と共変成分が一致する}
+
+\textbf{デカルト座標では}、計量が
+
+\[
+  g_{ij} = \delta_{ij}
+\]
+
+\noindent
+だから
+
+\[
+  V_i = \delta_{ij}V^j = V^i
+\]
+
+\noindent
+となって、\textbf{反変成分と共変成分が一致する}。
+
+\newpage
+
+\subsection*{$\bullet$ 反変、共変の由来}
+
+反変、共変の由来は基底変換時の挙動にある。\\
+そこで、
+
+\[
+  \mathbf{e}_{i'} = a^j{}_{i'} \mathbf{e}_j
+\]
+
+\noindent
+このような基底変換に対して、$V^i$と$V_i$がどのように変換されるかを考える。\\
+まず、反変成分に関しては、
+
+\begin{align*}
+  \mathbf{V} & = V^i \mathbf{e}_i                 \\
+             & = V^{i'} \mathbf{e}_{i'}           \\
+             & = V^{i'} (a^j{}_{i'} \mathbf{e}_j) \\
+             & = (a^j{}_{i'} V^{i'}) \mathbf{e}_j \\
+             & = (a^i{}_{j'} V^{j'}) \mathbf{e}_i
+\end{align*}
+
+\noindent
+最初と最後を比較して、
+
+\[
+  V^i = a^i{}_{j'} V^{j'}
+\]
+
+\noindent
+よって、
+
+\[
+  V^{i'} = (a^{-1})^{i'}{}_{j} V^{j}
+\]
+
+\noindent
+となる。つまり、\textbf{反変成分は基底変換と逆に変換される}。\\
+一方、共変成分は、
+
+\begin{align*}
+  V_{i'} & = g_{i'j'}V^{j'}                                                                   \\
+         & = (\mathbf{e}_{i'}\cdot \mathbf{e}_{j'})V^{j'}                                     \\
+         & = a^l{}_{i'} a^m{}_{j'} (\mathbf{e}_l \cdot \mathbf{e}_m)(a^{-1})^{j'}{}_{n} V^{n} \\
+         & = a^l{}_{i'} a^m{}_{j'} (a^{-1})^{j'}{}_{n} g_{lm} V^{n}                           \\
+         & = a^l{}_{i'} \delta^m_n g_{lm}V^n                                                  \\
+         & = a^l{}_{i'} g_{ln}V^n                                                             \\
+         & = a^l{}_{i'} V_l
+\end{align*}
+
+\noindent
+となる。つまり、\textbf{共変成分は基底変換と同様に変換される}。\\
+
+\noindent
+※ここでは基底を使って反変、共変を定義したけど、物理だとこの変換性から定義することが多い。
+
+\end{document}
