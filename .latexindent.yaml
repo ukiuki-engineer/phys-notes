@@ -1,0 +1,13 @@
+indent: "  "
+
+defaultIndent: "  "
+
+lookForAlignDelims:
+  align: 1
+
+modifyLineBreaks:
+  preserveBlankLines: 1
+
+removeTrailingWhitespace:
+  beforeProcessing: 1
+  afterProcessing: 1
