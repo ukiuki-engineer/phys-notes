@@ -1,6 +1,5 @@
-% TODO: Einstein規約についての注意書きを追加する
 % TODO: 全体的に式番号を追加する
-\documentclass{article}
+\documentclass[a4paper,11pt]{article}
 \usepackage[top=10mm]{geometry}
 \usepackage{mathtools}
 \usepackage{tikz}
@@ -12,12 +11,14 @@
 \setmainjfont{HaranoAjiMincho}
 \setsansjfont{HaranoAjiGothic}
 
-\begin{document}
+\title{反変ベクトル、共変ベクトルとは}
 
-\begin{center}
-  {\LARGE 反変ベクトルと共変ベクトルの違い}
-\end{center}
-% \vspace{2.0em}
+\begin{document}
+\maketitle
+
+ベクトルは色々な場面で登場するが、相対論やテンソルなどちょっと進んだ内容を勉強していると、何やら$A^i, A_i$のように添字の上げ下げが現れ、反変ベクトル、共変ベクトルなどと呼ばれるようになる。
+それまで単に「ベクトル」として扱っていたものが、いつの間にか2種類になってしまってよく分からないと思う人は少なくないはず。
+ここでは、このような疑問を解消することを目的として、反変ベクトルと共変ベクトルについて見ていく。
 
 \subsection*{$\bullet$ ベクトルの反変成分、共変成分}
 
@@ -29,7 +30,11 @@
 \]
 
 \noindent
-この \(V^i\) が \textbf{反変成分}。\\
+この \(V^i\) が \textbf{反変成分}。(ただしここでは\textbf{Einstein規約}\footnote{
+  (上下)ペアの添字について、$\Sigma$を省略して和を取る記法をEinstein規約という。このpdf内では全体的にこの記法を用いる。
+}
+を用いている。)\\
+\noindent
 一方、基底との内積をとって
 
 \[
@@ -42,7 +47,7 @@
 
 \subsection*{$\bullet$ 図形的意味}
 
-このことを図で表すと以下のようになる。
+上記の内容を図で表すと以下のようになる。
 
 \medskip
 \noindent
@@ -59,6 +64,8 @@
   \centering
   \input{tikz/covariant}
 \end{minipage}
+
+\newpage
 
 \subsection*{$\bullet$ 計量を使った表現}
 
@@ -105,7 +112,6 @@
 \noindent
 となって、\textbf{反変成分と共変成分が一致する}。
 
-\newpage
 
 \subsection*{$\bullet$ 反変、共変の由来}
 
