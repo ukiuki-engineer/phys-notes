@@ -37,7 +37,8 @@
 \]
 
 \noindent
-としたものが \textbf{共変成分}。
+としたものが \textbf{共変成分}。\\
+また、ベクトルの反変成分と共変成分のことを\textbf{反変ベクトル}、\textbf{共変ベクトル}とも呼ぶ。
 
 \subsection*{$\bullet$ 図形的意味}
 
@@ -84,7 +85,7 @@
 \]
 
 \noindent
-と表せる。（※ \(g_{ij}\) を計量テンソルと呼ぶ）
+と表せる。$g_{ij}$を計量テンソルと呼ぶ。
 
 \subsection*{$\bullet$ デカルト座標では反変成分と共変成分が一致する}
 
@@ -138,20 +139,20 @@
 よって、
 
 \[
-  V^{i'} = {}^t(a^{-1})^{i'}{}_{j} V^{j}
+  V^{i'} = (a^{-1})_{j}{}^{i'} V^{j}
 \]
 
 \noindent
-となる。つまり、\textbf{反変成分は基底変換と逆(の転置)で変換される}。\\
+となる。つまり、\textbf{反変成分は基底変換に対してその逆変換を受ける}。\\
 一方、共変成分は、
 
 \begin{align*}
-  V_{i'} & = g_{i'j'}V^{j'}                                                                             \\
-         & = (\mathbf{e}_{i'}\cdot \mathbf{e}_{j'})V^{j'}                                               \\
-         & = a_{i'}{}^{l} a_{j'}{}^{m} (\mathbf{e}_l \cdot \mathbf{e}_m){}^{t}(a^{-1})^{j'}{}_{n} V^{n} \\
-         & = a_{i'}{}^{l} (a^{-1})_{n}{}^{j'} a_{j'}{}^m g_{lm} V^{n}                                   \\
-         & = a_{i'}{}^{l} \delta^m_n g_{lm}V^n                                                          \\
-         & = a_{i'}{}^l g_{ln}V^n                                                                       \\
+  V_{i'} & = g_{i'j'}V^{j'}                                                                       \\
+         & = (\mathbf{e}_{i'}\cdot \mathbf{e}_{j'})V^{j'}                                         \\
+         & = a_{i'}{}^{l} a_{j'}{}^{m} (\mathbf{e}_l \cdot \mathbf{e}_m)(a^{-1})_{n}{}^{j'} V^{n} \\
+         & = a_{i'}{}^{l} (a^{-1})_{n}{}^{j'} a_{j'}{}^m g_{lm} V^{n}                             \\
+         & = a_{i'}{}^{l} \delta^m_n g_{lm}V^n                                                    \\
+         & = a_{i'}{}^l g_{ln}V^n                                                                 \\
          & = a_{i'}{}^{l} V_l
 \end{align*}
 
