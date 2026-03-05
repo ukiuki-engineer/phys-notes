@@ -1,5 +1,6 @@
+% TODO: Einstein規約についての注意書きを追加する
+% TODO: 全体的に式番号を追加する
 \documentclass{article}
-
 \usepackage[top=10mm]{geometry}
 \usepackage{mathtools}
 \usepackage{tikz}
@@ -111,7 +112,7 @@
 そこで、
 
 \[
-  \mathbf{e}_{i'} = a^j{}_{i'} \mathbf{e}_j
+  \mathbf{e}_{i'} = a_{i'}{}^j \mathbf{e}_j
 \]
 
 \noindent
@@ -121,37 +122,37 @@
 \begin{align*}
   \mathbf{V} & = V^i \mathbf{e}_i                 \\
              & = V^{i'} \mathbf{e}_{i'}           \\
-             & = V^{i'} (a^j{}_{i'} \mathbf{e}_j) \\
-             & = (a^j{}_{i'} V^{i'}) \mathbf{e}_j \\
-             & = (a^i{}_{j'} V^{j'}) \mathbf{e}_i
+             & = V^{i'} (a_{i'}{}^j \mathbf{e}_j) \\
+             & = (a_{i'}{}^j V^{i'}) \mathbf{e}_j \\
+             & = (a_{j'}{}^i V^{j'}) \mathbf{e}_i
 \end{align*}
 
 \noindent
 最初と最後を比較して、
 
 \[
-  V^i = a^i{}_{j'} V^{j'}
+  V^i = a_{j'}{}^i V^{j'}
 \]
 
 \noindent
 よって、
 
 \[
-  V^{i'} = (a^{-1})^{i'}{}_{j} V^{j}
+  V^{i'} = {}^t(a^{-1})^{i'}{}_{j} V^{j}
 \]
 
 \noindent
-となる。つまり、\textbf{反変成分は基底変換と逆に変換される}。\\
+となる。つまり、\textbf{反変成分は基底変換と逆(の転置)で変換される}。\\
 一方、共変成分は、
 
 \begin{align*}
-  V_{i'} & = g_{i'j'}V^{j'}                                                                   \\
-         & = (\mathbf{e}_{i'}\cdot \mathbf{e}_{j'})V^{j'}                                     \\
-         & = a^l{}_{i'} a^m{}_{j'} (\mathbf{e}_l \cdot \mathbf{e}_m)(a^{-1})^{j'}{}_{n} V^{n} \\
-         & = a^l{}_{i'} a^m{}_{j'} (a^{-1})^{j'}{}_{n} g_{lm} V^{n}                           \\
-         & = a^l{}_{i'} \delta^m_n g_{lm}V^n                                                  \\
-         & = a^l{}_{i'} g_{ln}V^n                                                             \\
-         & = a^l{}_{i'} V_l
+  V_{i'} & = g_{i'j'}V^{j'}                                                                             \\
+         & = (\mathbf{e}_{i'}\cdot \mathbf{e}_{j'})V^{j'}                                               \\
+         & = a_{i'}{}^{l} a_{j'}{}^{m} (\mathbf{e}_l \cdot \mathbf{e}_m){}^{t}(a^{-1})^{j'}{}_{n} V^{n} \\
+         & = a_{i'}{}^{l} (a^{-1})_{n}{}^{j'} a_{j'}{}^m g_{lm} V^{n}                                   \\
+         & = a_{i'}{}^{l} \delta^m_n g_{lm}V^n                                                          \\
+         & = a_{i'}{}^l g_{ln}V^n                                                                       \\
+         & = a_{i'}{}^{l} V_l
 \end{align*}
 
 \noindent
