@@ -5,7 +5,7 @@
 # 目次
 
 - 物理数学
-    - [反変ベクトルと共変ベクトルの違い](https://ukiuki-engineer.github.io/phys-notes/notes/math/covariance_contravariance/main.pdf)
+    - [反変ベクトル・共変ベクトルとは](https://ukiuki-engineer.github.io/phys-notes/notes/math/covariance_contravariance/main.pdf)
 - 力学
 - 電磁気学
 - 相対論
