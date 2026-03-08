@@ -1,5 +1,5 @@
 \documentclass[a4paper,11pt]{article}
-\usepackage[top=10mm]{geometry}
+\usepackage[bottom=20mm]{geometry}
 \usepackage{mathtools}
 \usepackage{tikz}
 \usetikzlibrary{calc,arrows.meta}
@@ -10,19 +10,20 @@
 \setmainjfont{HaranoAjiMincho}
 \setsansjfont{HaranoAjiGothic}
 
-\title{反変ベクトル・共変ベクトルとは}
+\title{\vspace{-40mm}反変ベクトル・共変ベクトルとは}
 \author{}
 
 \begin{document}
 \maketitle
 
-ベクトルは色々な場面で登場するが、相対論やテンソルなどちょっと進んだ内容を勉強していると、何やら$A^i, A_i$のように添字の上げ下げが現れ、反変ベクトル、共変ベクトルなどと呼ばれるようになる。
+ベクトルは色々な場面で登場するが、相対論やテンソルなどちょっと進んだ内容を勉強していると、何やら$A^i, A_i$のように添字が上下についた表記が現れ、反変ベクトル・共変ベクトルなどと呼ばれるようになる。
 それまで単に「ベクトル」として扱っていたものが、いつの間にか2種類になってしまってよく分からないと思う人は少なくないはず。
 ここでは、このような疑問を解消することを目的として、反変ベクトルと共変ベクトルについて見ていく。
 
 \section{ベクトルの反変成分・共変成分}
 
-実はベクトルの成分の取り方は二つあって、それぞれを反変成分、共変成分と呼ぶ。\\
+幾何学的対象としての「ベクトル」は一つだが、実はその成分の取り方が二種類あって、それぞれを反変成分、共変成分と呼ぶ。
+
 ベクトルを基底で展開したときの
 
 \begin{equation}
@@ -30,7 +31,7 @@
 \end{equation}
 
 \noindent
-この \(V^i\) が \textbf{反変成分}。(ただしここでは\textbf{Einstein規約}\footnote{
+この \(V^i\) が \textbf{反変成分}だ。(ただしここでは\textbf{Einstein規約}\footnote{
   (上下)ペアの添字について、$\Sigma$を省略して和を取る記法をEinstein規約という。このpdf内では全体的にこの記法を用いる。
 }
 を用いている。)\\
@@ -39,15 +40,18 @@
 
 \begin{equation}
   V_i \coloneqq \mathbf{e}_i \cdot \mathbf{V}
+  \label{eq:covariance}
 \end{equation}
 
 \noindent
-としたものが \textbf{共変成分}。\\
-また、ベクトルの反変成分と共変成分のことを\textbf{反変ベクトル}、\textbf{共変ベクトル}とも呼ぶ。
+としたものが \textbf{共変成分}である。
+
+本来はベクトルではなくその成分のことなのだが、物理ではこれらを慣習的に「\textbf{反変ベクトル}・\textbf{共変ベクトル}」と呼ぶことが多い。
 
 \section{図形的意味}
 
-上記の内容を図で表すと以下のようになる。
+上記の内容を図で表すと以下のようになる。 \\
+(基底ベクトルは長さ1に規格化されているものとする。)
 
 \medskip
 \noindent
@@ -120,6 +124,7 @@
 
 \begin{equation}
   \mathbf{e}_{i'} = a_{i'}{}^j \mathbf{e}_j
+  \label{eq:base_change}
 \end{equation}
 
 \noindent
@@ -128,10 +133,10 @@
 まず、反変成分に関しては、
 
 \begin{align}
-  \mathbf{V} & = V^i \mathbf{e}_i                 \nonumber \\
-             & = V^{i'} \mathbf{e}_{i'}           \nonumber \\
-             & = V^{i'} (a_{i'}{}^j \mathbf{e}_j) \nonumber \\
-             & = (a_{i'}{}^j V^{i'}) \mathbf{e}_j \nonumber \\
+  \mathbf{V} & = V^i \mathbf{e}_i                 \nonumber                                   \\
+             & = V^{i'} \mathbf{e}_{i'}           \nonumber                                   \\
+             & \overset{\eqref{eq:base_change}}{=} V^{i'} (a_{i'}{}^j \mathbf{e}_j) \nonumber \\
+             & = (a_{i'}{}^j V^{i'}) \mathbf{e}_j \nonumber                                   \\
              & = (a_{j'}{}^i V^{j'}) \mathbf{e}_i
 \end{align}
 
@@ -142,6 +147,7 @@
   V^i = a_{j'}{}^i V^{j'}
 \end{equation}
 
+\newpage
 \noindent
 よって、
 
@@ -150,18 +156,15 @@
 \end{equation}
 
 \noindent
-となる。つまり、\textbf{反変成分は基底変換に対してその逆変換を受ける}。\\
-\newpage
+となる。つまり、\textbf{反変成分は基底変換に対してその逆変換を受ける}。
+
 一方、共変成分は、
 
 \begin{align}
-  V_{i'} & = g_{i'j'}V^{j'}                                                                       \nonumber \\
-         & = (\mathbf{e}_{i'}\cdot \mathbf{e}_{j'})V^{j'}                                         \nonumber \\
-         & = a_{i'}{}^{l} a_{j'}{}^{m} (\mathbf{e}_l \cdot \mathbf{e}_m)(a^{-1})_{n}{}^{j'} V^{n} \nonumber \\
-         & = a_{i'}{}^{l} (a^{-1})_{n}{}^{j'} a_{j'}{}^m g_{lm} V^{n}                             \nonumber \\
-         & = a_{i'}{}^{l} \delta^m_n g_{lm}V^n                                                    \nonumber \\
-         & = a_{i'}{}^l g_{ln}V^n                                                                 \nonumber \\
-         & = a_{i'}{}^{l} V_l
+  V_{i'} & \overset{\eqref{eq:covariance}}{=} \mathbf{e}_{i'} \cdot \mathbf{V} \nonumber            \\
+         & \overset{\eqref{eq:base_change}}{=} (a_{i'}{}^l \mathbf{e}_l) \cdot \mathbf{V} \nonumber \\
+         & = a_{i'}{}^l (\mathbf{e}_{l} \cdot \mathbf{V}) \nonumber                                 \\
+         & \overset{\eqref{eq:covariance}}{=} a_{i'}{}^l V_l
 \end{align}
 
 \noindent
