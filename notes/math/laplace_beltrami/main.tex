@@ -1,0 +1,71 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[bottom=20mm]{geometry}
+\usepackage{mathtools}
+% \usepackage{tikz}
+% \usetikzlibrary{calc,arrows.meta}
+
+% --- 日本語対応（LuaLaTeX） ---
+\usepackage{luatexja}
+\usepackage{luatexja-fontspec}
+\setmainjfont{HaranoAjiMincho}
+\setsansjfont{HaranoAjiGothic}
+
+\title{\vspace{-40mm}Laplace–Beltrami 作用素の導出と\\3次元極座標のラプラシアン}
+\author{}
+
+\begin{document}
+\maketitle
+
+「3次元極座標のラプラシアン」は皆一度は苦労して通る物理数学の登竜門の１つかと思う。愚直に計算するとすんごく大変。
+そこで、Laplace-Beltrami作用素を使えば、この導出はかなり楽に行えることはよく知られている。
+しかし、そのLaplace–Beltrami作用素自体の導出は意外と骨が折れる。多くの文献では微分幾何などの前提知識が要求される。
+ここでは、そういった前提知識なしでLaplace-Beltrami作用素を導出することと、これを使った3次元Laplacianの導出を行う。
+
+\section{Laplace–Beltrami 作用素}
+
+一般の座標系 $x^i$ において、計量テンソルを $g_{ij}$ とする。
+その逆行列を $g^{ij}$、行列式を
+\[
+  g \coloneqq \det(g_{ij})
+\]
+と書く。
+このとき、スカラー関数 $\phi$ に作用する Laplace-Beltrami 作用素は
+
+\begin{equation}
+  \boxed{
+    \Delta \phi
+    =
+    \frac{1}{\sqrt{g}}
+    \partial_i
+    \left(
+    \sqrt{g}\, g^{ij} \partial_j \phi
+    \right)
+  }
+\end{equation}
+
+\noindent
+で与えられる。ただしここでは
+\textbf{Einstein規約}\footnote{
+  (上下)ペアの添字について、$\Sigma$を省略して和を取る記法をEinstein規約という。このpdf内では特に断りのない限りこの記法を用いる。
+}
+を用いている。
+% TODO: ∂_i, x^i_,jなどの記号の定義をどこでするか
+
+\section{行列式の微分}
+
+後で用いるので、まず行列式の微分公式
+
+\begin{equation}
+  \boxed{
+    \frac{\partial |A|}{\partial x} = 
+  }
+\end{equation}
+
+を示しておく。なおここでは一旦Einstein規約を解除しておく。
+% TODO: CocCommand snippets.openSnippetFiles
+
+\section{Laplace–Beltrami 作用素の導出}
+
+\section{3次元極座標のラプラシアンの導出}
+
+\end{document}
