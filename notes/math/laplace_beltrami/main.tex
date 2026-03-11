@@ -57,11 +57,53 @@
 
 \begin{equation}
   \boxed{
-    \frac{\partial |A|}{\partial x} = 
+    \frac{\partial |A|}{\partial x} = |A|\sum_{i,j} a^{-1}_{ji}\frac{\partial a_{ij}}{\partial x}
+    \label{eq:det_diff}
   }
 \end{equation}
 
-を示しておく。なおここでは一旦Einstein規約を解除しておく。
+\noindent
+を示しておく。なおここでは一旦Einstein規約を解除しておく。\\
+まず、
+
+\begin{equation}
+  \frac{\partial{|A|}}{\partial{x}} = \sum_{i,j} \frac{\partial{|A|}}{\partial{a_{ij}}} \frac{\partial{a_{ij}}}{\partial{x}}
+  \label{eq:det_diff_01}
+\end{equation}
+
+\noindent
+となる。ここで、行列$A$の逆行列$A^{-1}$は余因子$\tilde{A}$を用いて、
+
+\begin{equation}
+  A^{-1} = \frac{1}{|A|} \tilde{A}
+\end{equation}
+
+\noindent
+と表わせるのだった。このことから行列式$|A|$は、任意の成分$l$に対して、
+
+\begin{equation}
+  |A| = (A\tilde{A})_{ll} = \sum_{k} a_{lk}\tilde{a}_{kl}
+\end{equation}
+
+\noindent
+と表せられる。
+
+\begin{align}
+  \frac{\partial{|A|}}{\partial{a_{ij}}} & = \sum_{k}(\frac{\partial{a_{lk}}}{\partial{a_{ij}}}\tilde{a}_{kl} + a_{lk}\frac{\partial{\tilde{a}_{kl}}}{a_{ij}}) \nonumber            \\
+                                         & = \sum_{k} (\frac{\partial{a_{ik}}}{\partial{a_{ij}}}\tilde{a}_{ki} + a_{ik}\frac{\partial{\tilde{a}_{ki}}}{\partial{a_{ij}}}) \nonumber \\
+                                         & = |A|a^{-1}_{ji}
+\end{align}
+
+\noindent
+よって、
+
+\begin{equation}
+  \eqref{eq:det_diff_01} = |A|\sum_{i,j} a^{-1}_{ji}\frac{\partial{a_{ij}}}{\partial{x}}
+\end{equation}
+
+\noindent
+となり、$\eqref{eq:det_diff}$が示せた。
+
 % TODO: CocCommand snippets.openSnippetFiles
 
 \section{Laplace–Beltrami 作用素の導出}
