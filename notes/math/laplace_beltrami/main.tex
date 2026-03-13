@@ -23,13 +23,16 @@
 
 \section{Laplace–Beltrami 作用素}
 
-一般の座標系 $x^i$ において、計量テンソルを $g_{ij}$ とする。
-その逆行列を $g^{ij}$、行列式を
-\[
-  g \coloneqq \det(g_{ij})
-\]
-と書く。
-このとき、スカラー関数 $\phi$ に作用する Laplace-Beltrami 作用素は
+一般の座標系 $x^i$について、微小変位の長さの2乗 $ds^2$ は一般には各成分 $dx^i$ の単純な2乗和では書けず、
+
+\begin{equation}
+  ds^2 = \mathbf{dx}\cdot\mathbf{dx} = g_{ij}dx^{i}dx^{j}
+\end{equation}
+
+\noindent
+の形で表される。この $g_{ij}$ を\textbf{計量テンソル}という。
+その逆行列を $g^{ij}$、行列式を$g$と書く。
+このとき、スカラー関数 $\phi$ に作用するラプラシアンは
 
 \begin{equation}
   \boxed{
@@ -48,7 +51,7 @@
 \textbf{Einstein規約}\footnote{
   (上下)ペアの添字について、$\Sigma$を省略して和を取る記法をEinstein規約という。このpdf内では特に断りのない限りこの記法を用いる。
 }
-を用いている。
+を用いている。これをLaplace-Beltrami作用素という。
 % TODO: ∂_i, x^i_,jなどの記号の定義をどこでするか
 
 \section{行列式の微分}
