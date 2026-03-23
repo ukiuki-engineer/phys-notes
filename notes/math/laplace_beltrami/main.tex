@@ -111,6 +111,44 @@
 
 \section{Laplace–Beltrami 作用素の導出}
 
+デカルト座標を$\{x^i\}$とすると、ラプラシアンは
+
+\begin{equation}
+  \Delta \phi = \delta^{ij} \partial_{i} \partial_{j} \phi
+\end{equation}
+
+と書ける。一般の座標を$\{x^{i'}\}$として、$\{x^i\}\to\{x^{i'}\}$という座標変換を考える。
+
+\begin{align}
+  \Delta \phi & = \delta^{ij} \partial_{i} \partial_{j} \phi \nonumber                                                                                  \\
+              & = \partial_{i} \left(\delta^{ij}\partial_{j}\phi\right) \nonumber                                                                       \\
+              & = x^{j'}{}_{,i}\partial_{j'}\left(x^{i}{}_{,a'}x^{j}{}_{,b'}g^{a'b'}x^{c'}{}_{,j}\partial_{c'}\phi  \right) \nonumber                   \\
+              & = x^{j'}{}_{,i}\partial_{j'}\left(x^{i}{}_{,a'}(x^{c'}{}_{,j}x^{j}{}_{,b'})g^{a'b'}\partial_{c'}\phi  \right) \nonumber                 \\
+              & = x^{j'}{}_{,i}\partial_{j'}\left(x^{i}{}_{,a'}\delta^{c'}_{b'}g^{a'b'}\partial_{c'}\phi  \right) \nonumber                             \\
+              & = x^{j'}{}_{,i}\partial_{j'}\left(x^{i}{}_{,a'}g^{a'c'}\partial_{c'}\phi  \right) \nonumber                                             \\
+              & = x^{j'}{}_{,i}x^{i'}{}_{,a'j'}g^{a'c'}\partial_{c'}\phi + x^{j'}{}_{,i}x^{i}{}_{,a'}\partial_{j'}(g^{a'c'}\partial_{c'}\phi) \nonumber \\
+              & = x^{j'}{}_{,i}x^{i'}{}_{,a'j'}g^{a'c'}\partial_{c'}\phi + \delta^{j'}_{a'}\partial_{j'}(g^{a'c'}\partial_{c'}\phi) \nonumber           \\
+              & = x^{j'}{}_{,i}x^{i'}{}_{,a'j'}g^{a'c'}\partial_{c'}\phi + \partial_{a'}(g^{a'c'}\partial_{c'}\phi)
+  \label{eq:laplace_beltrami_01}
+\end{align}
+
+\begin{align}
+  J = \det{\left( \frac{\partial x^{i'}}{\partial x^{i}} \right)}
+\end{align}
+
+\begin{align}
+  d^3x' = Jd^3x
+\end{align}
+
+\begin{align}
+  \eqref{eq:laplace_beltrami_01} & = \frac{\partial_{a'}\sqrt{g}}{\sqrt{g}}g^{a'c'}\partial_{c'}\phi + \partial_{a'}(g^{a'c'}\partial_{c'}\phi) \nonumber                            \\
+                                 & = \frac{1}{\sqrt{g}} \left( (\partial_{a'}\sqrt{g})g^{a'c'}\partial_{c'}\phi + \sqrt{g}\partial_{a'}(g^{a'c'}\partial_{c'}\phi) \right) \nonumber \\
+                                 & = \frac{1}{\sqrt{g}} \partial_{a'} \left(\sqrt{g}g^{a'c'}\partial_{c'}\phi\right)
+\end{align}
+
+\noindent
+となり、Laplace-Beltrami 作用素を示せた。
+
 \section{3次元極座標のラプラシアンの導出}
 
 \end{document}
