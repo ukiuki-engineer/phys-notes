@@ -133,8 +133,11 @@
                           & = x^{a}{}_{,i'}x^{b}{}_{,j'}\delta_{ab}dx^{i'}dx^{j'}
 \end{align}
 
+\noindent
+
 \begin{equation}
   g_{i'j'} = x^{a}{}_{,i'}x^{b}{}_{,j'}\delta_{ab}
+  \label{eq:metric_transform}
 \end{equation}
 
 \begin{equation}
@@ -163,12 +166,41 @@
   \label{eq:laplace_beltrami_01}
 \end{align}
 
-\begin{align}
-  J = \det{\left( \frac{\partial x^{i'}}{\partial x^{i}} \right)}
-\end{align}
+ここで、$\eqref{eq:det_diff}$から、
 
+\begin{equation}
+  \partial_{i'}g = gg^{j'k'}g_{j'k',i'}
+\end{equation}
+
+\noindent
+となるので、
 \begin{align}
-  d^3x' = Jd^3x
+  \frac{\partial_{i'}\sqrt{g}}{\sqrt{g}}
+   & = \frac12 g^{a'b'}\,\partial_{i'} g_{a'b'}                     \nonumber \\
+   & = \frac12 x^{a'}_{c}\,x^{b'}_{d}\,\delta^{cd}\,
+  \partial_{i'}\left( x^{m}_{,a'}\,x^{n}_{,b'}\,\delta_{mn} \right) \nonumber \\
+   & = \frac12 x^{a'}_{c}\,x^{b'}_{d}\,\delta^{cd} \left(
+  x^{m}_{,a'i'}\,x^{n}_{,b'}\,\delta_{mn}
+  + x^{m}_{,a'}\,x^{n}_{,b'i'}\,\delta_{mn}
+  \right)                                                           \nonumber \\
+   & = \frac12\left(
+  x^{a'}_{c}\,x^{m}_{,a'i'}\,x^{n}_{,b'}\,x^{b'}_{d}\,
+  \delta^{cd}\,\delta_{mn}
+  +
+  x^{a'}_{c}\,x^{m}_{,a'}\,x^{n}_{,b'i'}\,x^{b'}_{d}\,
+  \delta^{cd}\,\delta_{mn}
+  \right)                                                           \nonumber \\
+   & = \frac12\left(
+  x^{a'}_{c}\,x^{m}_{,a'i'}\,\delta^{c}_{m}
+  +
+  x^{b'}_{d}\,x^{n}_{,b'i'}\,\delta^{d}_{n}
+  \right)                                                           \nonumber \\
+   & = \frac12\left(
+  x^{a'}_{c}\,x^{c}_{,a'i'}
+  +
+  x^{b'}_{d}\,x^{d}_{,b'i'}
+  \right)                                                           \nonumber \\
+   & = x^{a'}_{c}\,x^{c}_{,a'i'}
 \end{align}
 
 \begin{align}
