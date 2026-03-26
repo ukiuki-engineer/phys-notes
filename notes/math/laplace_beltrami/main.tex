@@ -1,8 +1,10 @@
 \documentclass[a4paper,11pt]{article}
 \usepackage[bottom=20mm]{geometry}
 \usepackage{mathtools}
-% \usepackage{tikz}
-% \usetikzlibrary{calc,arrows.meta}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{calc,arrows.meta}
+\tdplotsetmaincoords{65}{110}
 
 % --- 日本語対応（LuaLaTeX） ---
 \usepackage{luatexja}
@@ -243,5 +245,10 @@ $ds^2$が不変となる座標変換を考えると、
 となり、Laplace-Beltrami 作用素を示せた。
 
 \section{3次元極座標のラプラシアンの導出}
+
+% TODO: 図の読込み
+\begin{center}
+  \input{tikz/3d_polar_coordinates}
+\end{center}
 
 \end{document}
