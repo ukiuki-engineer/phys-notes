@@ -16,10 +16,10 @@
 \begin{document}
 \maketitle
 
-「3次元極座標のラプラシアン」は皆一度は苦労して通る物理数学の登竜門の１つかと思う。愚直に計算するとすんごく大変。
-そこで、Laplace-Beltrami作用素を使えば、この導出はかなり楽に行えることはよく知られている。
+「3次元極座標のラプラシアン」は皆一度は苦労して通る物理数学の登竜門の１つかと思う。愚直に計算すると結構大変。
+そこで、Laplace-Beltrami作用素を使えば、この導出がかなり楽になることはよく知られている。
 しかし、そのLaplace–Beltrami作用素自体の導出は意外と骨が折れる。多くの文献では微分幾何などの前提知識が要求される。
-ここでは、そういった前提知識なしでLaplace-Beltrami作用素を導出することと、これを使った3次元Laplacianの導出を行う。
+ここでは、そういった前提知識なしでLaplace-Beltrami作用素を導出することと、これを使った3次元ラプラシアンの導出を行う。
 
 \section{Laplace–Beltrami 作用素}
 
@@ -30,9 +30,11 @@
 \end{equation}
 
 \noindent
-の形で表される。この $g_{ij}$ を\textbf{計量テンソル}という。
-その逆行列を $g^{ij}$、行列式を$g$と書く。
-このとき、スカラー関数 $\phi$ に作用するラプラシアンは
+の形で表される。\footnote{
+  (上下)ペアの添字について、$\Sigma$を省略して和を取る記法を\textbf{Einstein規約}という。このpdf内では特に断りのない限りこの記法を用いる。
+}
+この係数 $g_{ij}$ を\textbf{計量テンソル}という。\\
+$g_{ij}$の逆行列を $g^{ij}$、行列式を$g$、$x^i$による偏微分を$\partial_{i}\coloneqq \frac{\partial}{\partial x^{i}}$と書くと、スカラー関数 $\phi$ に作用するラプラシアンは、
 
 \begin{equation}
   \boxed{
@@ -47,12 +49,7 @@
 \end{equation}
 
 \noindent
-で与えられる。ただしここでは
-\textbf{Einstein規約}\footnote{
-  (上下)ペアの添字について、$\Sigma$を省略して和を取る記法をEinstein規約という。このpdf内では特に断りのない限りこの記法を用いる。
-}
-を用いている。これをLaplace-Beltrami作用素という。
-% TODO: ∂_i, x^i_,jなどの記号の定義をどこでするか
+で与えられる。これをLaplace-Beltrami作用素という。
 
 \section{行列式の微分}
 
@@ -120,13 +117,38 @@
 \noindent
 と書ける。一般の座標を$\{x^{i'}\}$として、$\{x^i\}\to\{x^{i'}\}$という座標変換を考える。
 
+\subsection{$\partial_{i}$の座標変換}%
+
+
+連鎖律から偏微分は、
+
 \begin{equation}
-  \partial_{i} = x^{a'}{}_{,i}\partial_{a'}
+  \boxed{
+    \partial_{i} = x^{a'}{}_{,i}\partial_{a'}
+  }
 \end{equation}
+
+\noindent
+と変換される。ここで、
+
+\begin{equation}
+  x^{i'}{}_{j} \coloneqq \frac{\partial{x^{i'}}}{\partial{x^{j}}}
+\end{equation}
+
+\noindent
+である。
+
+\subsection{$g_{i'j'}$の座標変換}%
+
+
+$ds^2$が不変となる座標変換を考えると、
 
 \begin{equation}
   ds^2 = \delta_{ij}dx^{i}dx^{j} = g_{i'j'}dx^{i'}dx^{j'}
 \end{equation}
+
+\noindent
+であって、$dx^{i}$の全微分から、
 
 \begin{align}
   \delta_{ij}dx^{i}dx^{j} & = x^{i}{}_{,a'}x^{j}{}_{,b'}\delta_{ij}dx^{a'}dx^{b'} \nonumber \\
@@ -136,8 +158,10 @@
 \noindent
 
 \begin{equation}
+  \boxed{
   g_{i'j'} = x^{a}{}_{,i'}x^{b}{}_{,j'}\delta_{ab}
   \label{eq:metric_transform}
+  }
 \end{equation}
 
 \begin{equation}
@@ -150,8 +174,13 @@
 \end{align}
 
 \begin{equation}
+  \boxed{
   g^{i'j'} = x^{i'}{}_{a}x^{j'}{}_{b}\delta^{ab}
+  }
 \end{equation}
+
+\subsection{ラプラシアンの座標変換}%
+
 
 \begin{align}
   \Delta \phi & = \delta^{ij} \partial_{i} \partial_{j} \phi \nonumber                                                                                  \\
@@ -166,6 +195,7 @@
   \label{eq:laplace_beltrami_01}
 \end{align}
 
+\noindent
 ここで、$\eqref{eq:det_diff}$から、
 
 \begin{equation}
