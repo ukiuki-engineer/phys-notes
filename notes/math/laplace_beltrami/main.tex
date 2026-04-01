@@ -36,16 +36,16 @@
   (上下)ペアの添字について、$\Sigma$を省略して和を取る記法を\textbf{Einstein規約}という。このpdf内では特に断りのない限りこの記法を用いる。
 }
 この係数 $g_{ij}$ を\textbf{計量テンソル}という。\\
-$g_{ij}$の逆行列を $g^{ij}$、行列式を$g$、$x^i$による偏微分を$\partial_{i}\coloneqq \frac{\partial}{\partial x^{i}}$と書くと、スカラー関数 $\phi$ に作用するラプラシアンは、
+$g_{ij}$の逆行列を $g^{ij}$、行列式を$g$、$x^i$による偏微分を$\partial_{i}\coloneqq \frac{\partial}{\partial x^{i}}$と書くと、スカラー関数 $f$ に作用するラプラシアンは、
 
 \begin{equation}
   \boxed{
-    \Delta \phi
+    \Delta f
     =
     \frac{1}{\sqrt{g}}
     \partial_i
     \left(
-    \sqrt{g}\, g^{ij} \partial_j \phi
+    \sqrt{g}\, g^{ij} \partial_j f
     \right)
   }
 \end{equation}
@@ -113,7 +113,7 @@ $g_{ij}$の逆行列を $g^{ij}$、行列式を$g$、$x^i$による偏微分を$
 デカルト座標を$\{x^i\}$とすると、ラプラシアンは
 
 \begin{equation}
-  \Delta \phi = \delta^{ij} \partial_{i} \partial_{j} \phi
+  \Delta f = \delta^{ij} \partial_{i} \partial_{j} f
 \end{equation}
 
 \noindent
@@ -185,15 +185,15 @@ $ds^2$が不変となる座標変換を考えると、
 
 
 \begin{align}
-  \Delta \phi & = \delta^{ij} \partial_{i} \partial_{j} \phi \nonumber                                                                                  \\
-              & = \partial_{i} \left(\delta^{ij}\partial_{j}\phi\right) \nonumber                                                                       \\
-              & = x^{j'}{}_{,i}\partial_{j'}\left(x^{i}{}_{,a'}x^{j}{}_{,b'}g^{a'b'}x^{c'}{}_{,j}\partial_{c'}\phi  \right) \nonumber                   \\
-              & = x^{j'}{}_{,i}\partial_{j'}\left(x^{i}{}_{,a'}(x^{c'}{}_{,j}x^{j}{}_{,b'})g^{a'b'}\partial_{c'}\phi  \right) \nonumber                 \\
-              & = x^{j'}{}_{,i}\partial_{j'}\left(x^{i}{}_{,a'}\delta^{c'}_{b'}g^{a'b'}\partial_{c'}\phi  \right) \nonumber                             \\
-              & = x^{j'}{}_{,i}\partial_{j'}\left(x^{i}{}_{,a'}g^{a'c'}\partial_{c'}\phi  \right) \nonumber                                             \\
-              & = x^{j'}{}_{,i}x^{i'}{}_{,a'j'}g^{a'c'}\partial_{c'}\phi + x^{j'}{}_{,i}x^{i}{}_{,a'}\partial_{j'}(g^{a'c'}\partial_{c'}\phi) \nonumber \\
-              & = x^{j'}{}_{,i}x^{i'}{}_{,a'j'}g^{a'c'}\partial_{c'}\phi + \delta^{j'}_{a'}\partial_{j'}(g^{a'c'}\partial_{c'}\phi) \nonumber           \\
-              & = x^{j'}{}_{,i}x^{i'}{}_{,a'j'}g^{a'c'}\partial_{c'}\phi + \partial_{a'}(g^{a'c'}\partial_{c'}\phi)
+  \Delta f & = \delta^{ij} \partial_{i} \partial_{j} f \nonumber                                                                               \\
+           & = \partial_{i} \left(\delta^{ij}\partial_{j}f\right) \nonumber                                                                    \\
+           & = x^{j'}{}_{,i}\partial_{j'}\left(x^{i}{}_{,a'}x^{j}{}_{,b'}g^{a'b'}x^{c'}{}_{,j}\partial_{c'}f  \right) \nonumber                \\
+           & = x^{j'}{}_{,i}\partial_{j'}\left(x^{i}{}_{,a'}(x^{c'}{}_{,j}x^{j}{}_{,b'})g^{a'b'}\partial_{c'}f  \right) \nonumber              \\
+           & = x^{j'}{}_{,i}\partial_{j'}\left(x^{i}{}_{,a'}\delta^{c'}_{b'}g^{a'b'}\partial_{c'}f  \right) \nonumber                          \\
+           & = x^{j'}{}_{,i}\partial_{j'}\left(x^{i}{}_{,a'}g^{a'c'}\partial_{c'}f  \right) \nonumber                                          \\
+           & = x^{j'}{}_{,i}x^{i'}{}_{,a'j'}g^{a'c'}\partial_{c'}f + x^{j'}{}_{,i}x^{i}{}_{,a'}\partial_{j'}(g^{a'c'}\partial_{c'}f) \nonumber \\
+           & = x^{j'}{}_{,i}x^{i'}{}_{,a'j'}g^{a'c'}\partial_{c'}f + \delta^{j'}_{a'}\partial_{j'}(g^{a'c'}\partial_{c'}f) \nonumber           \\
+           & = x^{j'}{}_{,i}x^{i'}{}_{,a'j'}g^{a'c'}\partial_{c'}f + \partial_{a'}(g^{a'c'}\partial_{c'}f)
   \label{eq:laplace_beltrami_01}
 \end{align}
 
@@ -236,9 +236,9 @@ $ds^2$が不変となる座標変換を考えると、
 \end{align}
 
 \begin{align}
-  \eqref{eq:laplace_beltrami_01} & = \frac{\partial_{a'}\sqrt{g}}{\sqrt{g}}g^{a'c'}\partial_{c'}\phi + \partial_{a'}(g^{a'c'}\partial_{c'}\phi) \nonumber                            \\
-                                 & = \frac{1}{\sqrt{g}} \left( (\partial_{a'}\sqrt{g})g^{a'c'}\partial_{c'}\phi + \sqrt{g}\partial_{a'}(g^{a'c'}\partial_{c'}\phi) \right) \nonumber \\
-                                 & = \frac{1}{\sqrt{g}} \partial_{a'} \left(\sqrt{g}g^{a'c'}\partial_{c'}\phi\right)
+  \eqref{eq:laplace_beltrami_01} & = \frac{\partial_{a'}\sqrt{g}}{\sqrt{g}}g^{a'c'}\partial_{c'}f + \partial_{a'}(g^{a'c'}\partial_{c'}f) \nonumber                            \\
+                                 & = \frac{1}{\sqrt{g}} \left( (\partial_{a'}\sqrt{g})g^{a'c'}\partial_{c'}f + \sqrt{g}\partial_{a'}(g^{a'c'}\partial_{c'}f) \right) \nonumber \\
+                                 & = \frac{1}{\sqrt{g}} \partial_{a'} \left(\sqrt{g}g^{a'c'}\partial_{c'}f\right)
 \end{align}
 
 \noindent
@@ -259,5 +259,37 @@ $ds^2$が不変となる座標変換を考えると、
   \end{cases}
 \end{align}
 
+\begin{align}
+  g_{rr}           & = \left( \frac{\partial{x}}{\partial{r}} \right)^2 + \left( \frac{\partial{y}}{\partial{r}} \right)^2 + \left( \frac{\partial{z}}{\partial{r}} \right)^2 = 1                          \\
+  g_{\theta\theta} & = \left( \frac{\partial{x}}{\partial{\theta}} \right)^2 + \left( \frac{\partial{y}}{\partial{\theta}} \right)^2 + \left( \frac{\partial{z}}{\partial{\theta}} \right)^2 = r^2         \\
+  g_{\phi\phi}     & = \left( \frac{\partial{x}}{\partial{\phi}} \right)^2 + \left( \frac{\partial{y}}{\partial{\phi}} \right)^2 + \left( \frac{\partial{z}}{\partial{\phi}} \right)^2 = r^2 \sin^2 \theta
+\end{align}
+
+\begin{equation}
+  g_{ij} =
+  \begin{pmatrix}
+    1 & 0   & 0                 \\
+    0 & r^2 & 0                 \\
+    0 & 0   & r^2 \sin^2 \theta
+  \end{pmatrix}
+\end{equation}
+
+\begin{equation}
+  g^{ij} =
+  \begin{pmatrix}
+    1 & 0              & 0                            \\
+    0 & \dfrac{1}{r^2} & 0                            \\
+    0 & 0              & \dfrac{1}{r^2 \sin^2 \theta}
+  \end{pmatrix}
+\end{equation}
+
+\begin{equation}
+  g = r^4 \sin^2 \theta
+\end{equation}
+
+\begin{align}
+  \Delta f & = \frac{1}{\sqrt{g}}\partial_{i}\left( \sqrt{g}g^{ij}\partial_{j}f \right) \noindent     \\
+           & =\frac{1}{r^2 \sin \theta}\partial_{i}\left( r^2 \sin \theta g^{ij}\partial_{j}f \right)
+\end{align}
 
 \end{document}
